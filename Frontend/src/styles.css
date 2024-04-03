@@ -389,13 +389,16 @@ img {
     height: calc(var(--header-height) + 2rem);
     column-gap: 3rem;
   }
+  
   .nav_close,
   .nav_toggle {
     display: none;
   }
+
   .nav_menu {
     margin-left: auto;
   }
+
   .nav_list {
     flex-direction: row;
     column-gap: 3rem;
