@@ -1,67 +1,7 @@
-<header class="header" id="header">
-  <nav class="nav container">
-    <a routerLink="/" class="nav_logo">
-      <img src="assets/logo.jpg" alt="." />FreshMenu</a
-    >
+<!-- Header -->
+<app-header />
 
-    <div class="nav_menu" id="nav-menu">
-      <ul class="nav_list">
-        <li class="nav_item">
-          <a routerLink="/" class="nav_link">Home</a>
-        </li>
-
-        <li class="nav_item">
-          <a routerLink="about-us" class="nav_link">About US</a>
-        </li>
-
-        <li *ngIf="isLoggedIn" class="nav_item">
-          <a routerLink="check-out" class="nav_link">Checkout</a>
-        </li>
-
-        <li *ngIf="access" class="nav_item">
-          <a
-            routerLink="home/admin"
-            id="admin-page"
-            class="nav_link"
-            >Admin</a
-          >
-        </li>
-
-        <li *ngIf="isLoggedIn" class="nav_item">
-          <a id="order-history" routerLink="order-history" class="nav_link"
-            >Order History</a
-          >
-        </li>
-      </ul>
-
-      <!-- Close button -->
-      <div class="nav_close" (click)="navOpenClose()" id="nav-close">
-        <i class="ri-close-line"></i>
-      </div>
-    </div>
-
-    <div class="nav_actions">
-      <!-- Search button -->
-      <i
-        class="ri-search-line nav_search"
-        (click)="searchOpenClose()"
-        id="search-btn"
-      ></i>
-
-      <!-- Login button -->
-      <a
-        class="ri-user-line nav_login"
-        (click)="loginOpen()"
-        id="login-btn"
-      ></a>
-
-      <!-- Toggle button -->
-      <div class="nav_toggle" (click)="navOpenClose()" id="nav-toggle">
-        <i class="ri-menu-line"></i>
-      </div>
-    </div>
-  </nav>
-</header>
-<!-- <app-registration /> -->
-
+<!-- Router -->
 <router-outlet />
+
+<!-- Footer -->

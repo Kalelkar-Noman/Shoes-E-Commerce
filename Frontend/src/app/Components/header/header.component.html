@@ -1,0 +1,33 @@
+<nav>
+  <div>Logo</div>
+
+  <ul class="mobile_view">
+    <li>Home</li>
+    <li>Man</li>
+    <li>Women</li>
+    <li>Kids</li>
+    <li>Sale</li>
+  </ul>
+
+  <ul class="icon_items">
+    <li><i class="ri-shopping-cart-line"></i></li>
+    <li><i class="ri-search-line" (click)="toggleSearch()"></i></li>
+    <li><i class="ri-user-line"></i></li>
+    <li>
+      <button class="hamburger">
+        <i class="ri-menu-line"></i>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<div id="search-container" class="search">
+  <button (click)="toggleSearch()" id="close-btn">
+    <i class="ri-close-large-line"></i>
+  </button>
+  <div class="search_field">
+    <label for="search"><i class="ri-search-line"></i></label>
+    <input type="text" id="search" name="search" placeholder="Search here..." />
+    <i class="ri-close-line"></i>
+  </div>
+</div>
