@@ -96,6 +96,30 @@ nav a {
   display: none;
 }
 
+.ri-user-line {
+  position: relative;
+}
+
+.drop_down {
+  display: none;
+  position: absolute;
+  right: 0;
+  font-size: medium;
+}
+
+.drop_down ul {
+  display: flex;
+  flex-direction: column;
+  gap: unset;
+  padding: 0.5rem 1rem;
+  background: aliceblue;
+  /* padding: unset; */
+}
+
+#profile:hover .drop_down {
+  display: flex;
+}
+
 @media (max-width: 767px) {
   .hamburger {
     display: block;

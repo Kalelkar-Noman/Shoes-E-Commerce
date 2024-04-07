@@ -74,4 +74,5 @@
   padding: 2vh 7vw;
   border: 1px solid yellow;
   border-radius: 2rem;
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 // import axios from 'axios';
@@ -7,7 +8,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

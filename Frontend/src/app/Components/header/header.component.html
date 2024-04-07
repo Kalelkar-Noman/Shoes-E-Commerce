@@ -17,8 +17,16 @@
     <li title="Search">
       <i class="ri-search-line" (click)="toggleSearch()"></i>
     </li>
-    <li title="My Profile">
+    <li id="profile" title="My Profile">
       <a routerLink="profile"><i class="ri-user-line"></i></a>
+      <div class="drop_down">
+        <ul>
+          <li><a routerLink="profile">Settings</a></li>
+          <li><a routerLink="check-out">Check Out</a></li>
+          <li><a routerLink="order-history">Order History</a></li>
+          <li>Log Out</li>
+        </ul>
+      </div>
     </li>
     <li>
       <button (click)="toggleMobileNav()" class="hamburger">

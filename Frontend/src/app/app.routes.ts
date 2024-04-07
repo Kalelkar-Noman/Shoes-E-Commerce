@@ -5,6 +5,7 @@ import { CheckOutComponent } from './Pages/check-out/check-out.component';
 import { AdminComponent } from './Pages/admin/admin.component';
 import { OrderHistoryComponent } from './Pages/order-history/order-history.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
+import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
 
 export const routes: Routes = [
   {
@@ -37,4 +38,9 @@ export const routes: Routes = [
     component: ProfileComponent,
     title: 'Profile',
   },
+  {
+    path: 'home/product-details',
+    component: ProductDetailsComponent,
+    title: 'Product-Details',
+  }
 ];
