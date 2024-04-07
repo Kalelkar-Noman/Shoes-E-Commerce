@@ -1,20 +1,27 @@
 <nav>
   <div>Logo</div>
 
-  <ul class="mobile_view">
-    <li>Home</li>
+  <ul id="mobile-nav-view" class="mobile_view">
+    <button (click)="toggleMobileNav()" id="mobile-nav-close-btn">
+      <i class="ri-close-large-line"></i>
+    </button>
+    <li><a routerLink="/">Home</a></li>
     <li>Man</li>
     <li>Women</li>
     <li>Kids</li>
-    <li>Sale</li>
+    <li><a routerLink="home/admin">Admin</a></li>
   </ul>
 
   <ul class="icon_items">
-    <li><i class="ri-shopping-cart-line"></i></li>
-    <li><i class="ri-search-line" (click)="toggleSearch()"></i></li>
-    <li><i class="ri-user-line"></i></li>
+    <li title="Cart"><i class="ri-shopping-cart-line"></i></li>
+    <li title="Search">
+      <i class="ri-search-line" (click)="toggleSearch()"></i>
+    </li>
+    <li title="My Profile">
+      <a routerLink="profile"><i class="ri-user-line"></i></a>
+    </li>
     <li>
-      <button class="hamburger">
+      <button (click)="toggleMobileNav()" class="hamburger">
         <i class="ri-menu-line"></i>
       </button>
     </li>
@@ -22,7 +29,7 @@
 </nav>
 
 <div id="search-container" class="search">
-  <button (click)="toggleSearch()" id="close-btn">
+  <button (click)="toggleSearch()" id="search-close-btn">
     <i class="ri-close-large-line"></i>
   </button>
   <div class="search_field">

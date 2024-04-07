@@ -1,20 +1,67 @@
 <!-- Slider main container -->
 <div class="swiper">
-  <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-    ...
+    <div class="swiper-slide" *ngFor="let images of devImages; index as i">
+      <picture>
+        <source media="(min-width:650px)" [srcset]="images.primary" />
+        <img [src]="images.secondary" alt="Flowers" />
+      </picture>
+    </div>
+    <div class="swiper-slide" *ngFor="let images of devImages; index as i">
+      <picture>
+        <source media="(min-width:650px)" [srcset]="images.primary" />
+        <img [src]="images.secondary" alt="Flowers" />
+      </picture>
+    </div>
   </div>
-  <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
-
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-
-  <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
 </div>
+
+<!-- Cards main container -->
+<section class="products">
+  <div class="cards_categories">
+    <h1>Categories</h1>
+    <ul>
+      <li>All</li>
+      <li>Boots</li>
+      <li>Shoes</li>
+      <li>Sandals</li>
+      <li>Slipper</li>
+      <li>Jogging</li>
+    </ul>
+  </div>
+  <div class="cards_container">
+    <!-- Cards -->
+    <div class="cards" *ngFor="let images of devImages; index as i">
+      <div>
+        <img src="../../../assets/dev-images/card-1.png" alt="shoes images" />
+      </div>
+      <div class="card_mid">
+        <div class="card_name_price">
+          <p>Nike Running</p>
+          <span>250$</span>
+        </div>
+        <small>Running Nike- Collection 2022</small>
+        <small>4.9</small>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards" *ngFor="let images of devImages; index as i">
+      <div>
+        <img src="../../../assets/dev-images/card-1.png" alt="shoes images" />
+      </div>
+      <div class="card_mid">
+        <div class="card_name_price">
+          <p>Nike Running</p>
+          <span>250$</span>
+        </div>
+        <small>Running Nike- Collection 2022</small>
+        <small>4.9</small>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  </div>
+</section>

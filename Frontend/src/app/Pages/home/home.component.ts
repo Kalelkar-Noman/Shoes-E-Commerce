@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -6,7 +7,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -17,29 +18,29 @@ export class HomeComponent {
   //     console.log(res.data);
   //   });
   // }
-  
+  devImages = [
+    {
+      primary: '../../../assets/dev-images/landscape1.jpg',
+      secondary: '../../../assets/dev-images/portrait1.jpg',
+    },
+    {
+      primary: '../../../assets/dev-images/landscape2.jpg',
+      secondary: '../../../assets/dev-images/portrait2.jpg',
+    },
+    {
+      primary: '../../../assets/dev-images/landscape3.jpg',
+      secondary: '../../../assets/dev-images/portrait3.jpg',
+    },
+  ];
+
   swiper: Swiper | null = null;
-  ngOnInit() {
+  ngAfterViewInit() {
     this.swiper = new Swiper('.swiper', {
-      modules: [Navigation, Pagination],
-      // Optional parameters
+      modules: [Pagination],
       direction: 'vertical',
       loop: true,
-
-      // If we need pagination
       pagination: {
         el: '.swiper-pagination',
-      },
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
       },
     });
   }

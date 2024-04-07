@@ -5,6 +5,8 @@ nav {
   position: sticky;
   height: 10dvh;
   padding: 0 2dvw;
+  z-index: 2;
+  /* border-bottom: 2px solid #525252; */
 }
 
 nav ul {
@@ -15,11 +17,16 @@ nav ul {
 
 nav .icon_items {
   gap: 1.5dvw;
-  font-size: 1.2rem;
+  font-size: larger;
 }
 
 nav li {
   cursor: pointer;
+}
+
+nav a {
+  text-decoration: none;
+  color: unset;
 }
 
 .search {
@@ -36,7 +43,6 @@ nav li {
 
 .search input {
   font-size: large;
-  /* height: 8dvh; */
   width: calc(100% - 3rem);
   outline: none;
   border: none;
@@ -57,11 +63,11 @@ nav li {
   cursor: pointer;
 }
 
-:is(.ri-close-line, .ri-search-line, #close-btn):hover {
+:is(.ri-close-line, .ri-search-line, #search-close-btn):hover {
   background-color: #808080;
 }
 
-#close-btn {
+#search-close-btn {
   height: 3rem;
   width: 3rem;
   font-size: large;
@@ -78,18 +84,51 @@ nav li {
 
 .hamburger {
   display: none;
+  font-size: large;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+#mobile-nav-close-btn {
+  display: none;
 }
 
 @media (max-width: 767px) {
-  nav {
-    background-color: red;
-  }
-
   .hamburger {
     display: block;
   }
 
   nav .mobile_view {
     display: none;
+  }
+
+  nav .mobile_nav_active {
+    display: flex;
+    background-color: aqua;
+    height: 100dvh;
+    width: 40dvw;
+    min-width: 200px;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 4vh 0 0 4dvw;
+    gap: 4dvh;
+    font-size: x-large;
+  }
+
+  #mobile-nav-close-btn {
+    display: block;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    align-self: end;
+    margin: 0 2dvw 0 0;
+    font-size: large;
+    border-radius: 3rem;
+    cursor: pointer;
   }
 }
