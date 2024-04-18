@@ -1,1 +1,18 @@
-<p>product-cards works!</p>
+<div class="cards_container">
+  <!-- Cards -->
+  <div class="cards" *ngFor="let item of cardItems">
+    <div>
+      <!-- src="../../../assets/dev-images/card-1.png" -->
+      <img [src]="item.Image" alt="shoes images" />
+    </div>
+    <div class="card_mid">
+      <div class="card_name_price">
+        <p>{{ item.Name }}</p>
+        <span>{{ item.Price }}$</span>
+      </div>
+      <small>{{ item.Description }}</small>
+      <small>{{ item.Rating }}</small>
+      <button routerLink="home/product-details">Buy Now</button>
+    </div>
+  </div>
+</div>

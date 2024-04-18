@@ -6,6 +6,7 @@ import { AdminComponent } from './Pages/admin/admin.component';
 import { OrderHistoryComponent } from './Pages/order-history/order-history.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
+import { RegistrationComponent } from './Pages/registration/registration.component';
 
 export const routes: Routes = [
   {
@@ -42,5 +43,10 @@ export const routes: Routes = [
     path: 'home/product-details',
     component: ProductDetailsComponent,
     title: 'Product-Details',
-  }
+  },
+  {
+    path: 'auth',
+    component: RegistrationComponent,
+    title: 'Registration',
+  },
 ];

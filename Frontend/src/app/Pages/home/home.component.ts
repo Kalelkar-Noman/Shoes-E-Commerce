@@ -2,13 +2,22 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
+import { ProductCardsComponent } from '../../Components/product-cards/product-cards.component';
 // import axios from 'axios';
+
+interface ItemObject {
+  Image: string;
+  Name: string;
+  Price: number;
+  Description: string;
+  Rating: string;
+}
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor,RouterLink],
+  imports: [NgFor, RouterLink, ProductCardsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -19,6 +28,52 @@ export class HomeComponent {
   //     console.log(res.data);
   //   });
   // }
+
+  items: Array<ItemObject> = [
+    {
+      Name: 'Not Provided',
+      Image: '../../../assets/dev-images/card-1.png',
+      Price: 100,
+      Description: 'Running Nike- Collection 2022',
+      Rating: '5.0',
+    },
+    {
+      Name: 'Not Provided',
+      Image: '../../../assets/dev-images/card-1.png',
+      Price: 100,
+      Description: 'Running Nike- Collection 2022',
+      Rating: '5.0',
+    },
+    {
+      Name: 'Not Provided',
+      Image: '../../../assets/dev-images/card-1.png',
+      Price: 100,
+      Description: 'Running Nike- Collection 2022',
+      Rating: '5.0',
+    },
+    {
+      Name: 'Not Provided',
+      Image: '../../../assets/dev-images/card-1.png',
+      Price: 100,
+      Description: 'Running Nike- Collection 2022',
+      Rating: '5.0',
+    },
+    {
+      Name: 'Not Provided',
+      Image: '../../../assets/dev-images/card-1.png',
+      Price: 100,
+      Description: 'Running Nike- Collection 2022',
+      Rating: '5.0',
+    },
+    {
+      Name: 'Not Provided',
+      Image: '../../../assets/dev-images/card-1.png',
+      Price: 100,
+      Description: 'Running Nike- Collection 2022',
+      Rating: '5.0',
+    },
+  ];
+
   devImages = [
     {
       primary: '../../../assets/dev-images/landscape1.jpg',

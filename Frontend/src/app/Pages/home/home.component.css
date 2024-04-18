@@ -15,12 +15,6 @@
   padding: 3vh 6vw;
 }
 
-.cards_container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4vw;
-}
-
 .cards_categories h1 {
   font-size: xx-large;
   font-weight: 400;
@@ -38,41 +32,4 @@
   border: 1px solid black;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
-}
-
-.cards {
-  height: max-content;
-  width: 26vw;
-  min-width: 250px;
-  border: 1px solid red;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-.cards img {
-  height: 10rem;
-  width: 100%;
-  background: aliceblue;
-  object-fit: contain;
-}
-
-.card_mid {
-  padding: 2vh 2vw 2vh 2vw;
-  display: flex;
-  padding: 2vw;
-  flex-direction: column;
-  gap: 1vh;
-}
-
-.card_name_price {
-  display: flex;
-  justify-content: space-between;
-}
-
-.card_mid button {
-  background-color: yellow;
-  padding: 2vh 7vw;
-  border: 1px solid yellow;
-  border-radius: 2rem;
-  cursor: pointer;
 }

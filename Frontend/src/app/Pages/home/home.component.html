@@ -31,37 +31,5 @@
       <li>Jogging</li>
     </ul>
   </div>
-  <div class="cards_container">
-    <!-- Cards -->
-    <div class="cards" *ngFor="let images of devImages; index as i">
-      <div>
-        <img src="../../../assets/dev-images/card-1.png" alt="shoes images" />
-      </div>
-      <div class="card_mid">
-        <div class="card_name_price">
-          <p>Nike Running</p>
-          <span>250$</span>
-        </div>
-        <small>Running Nike- Collection 2022</small>
-        <small>4.9</small>
-        <button routerLink="home/product-details">Buy Now</button>
-      </div>
-    </div>
-
-    <!-- Cards -->
-    <div class="cards" *ngFor="let images of devImages; index as i">
-      <div>
-        <img src="../../../assets/dev-images/card-1.png" alt="shoes images" />
-      </div>
-      <div class="card_mid">
-        <div class="card_name_price">
-          <p>Nike Running</p>
-          <span>250$</span>
-        </div>
-        <small>Running Nike- Collection 2022</small>
-        <small>4.9</small>
-        <button routerLink="home/product-details">Buy Now</button>
-      </div>
-    </div>
-  </div>
+  <app-product-cards [cardItems]="items" />
 </section>
