@@ -17,12 +17,12 @@
     <div class="product-right">
       <div class="product-desc">
         <div class="product-price-details">
-          <h3>Nike Air Zoom Structure 22</h3>
+          <h3>{{ details.productName }}</h3>
           <div class="product-review">
-            <h4>$6,997</h4>
+            <h4>${{details.price}}</h4>
             <div class="product-rating">
               <h5 id="r">Review</h5>
-              <h5 id="rate">4.9</h5>
+              <h5 id="rate">{{ details.rating }}</h5>
             </div>
           </div>
         </div>
@@ -53,10 +53,7 @@
         </div>
         <div class="product-description">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            fugit maiores suscipit facilis animi laboriosam, nemo dolores vero
-            voluptas autem? Ex tempore culpa laudantium officiis quae inventore,
-            totam mollitia suscipit!
+            {{ details.description }}
           </p>
         </div>
         <div class="product-color">
@@ -114,47 +111,7 @@
       >
     </div>
     <div class="product-similer">
-      <!-- <h3>Good For You</h3> -->
-      <div class="cards_container">
-        <!-- Cards -->
-        <div class="cards">
-          <div>
-            <img
-              src="../../../assets/dev-images/card-1.png"
-              alt="shoes images"
-            />
-          </div>
-          <div class="card_mid">
-            <div class="card_name_price">
-              <p>Nike Running</p>
-              <span>250$</span>
-            </div>
-            <small>Running Nike- Collection 2022</small>
-            <small>4.9</small>
-            <button routerLink="home/product-details">Buy Now</button>
-          </div>
-        </div>
-      </div>
-      <div class="cards_container">
-        <!-- Cards -->
-        <div class="cards">
-          <div>
-            <img
-              src="../../../assets/dev-images/card-1.png"
-              alt="shoes images"
-            />
-          </div>
-          <div class="card_mid">
-            <div class="card_name_price">
-              <p>Nike Running</p>
-              <span>250$</span>
-            </div>
-            <small>Running Nike- Collection 2022</small>
-            <small>4.9</small>
-            <button routerLink="home/product-details">Buy Now</button>
-          </div>
-        </div>
-      </div>
+      <app-product-cards [cardItems]="cards" />
     </div>
   </div>
 </div>

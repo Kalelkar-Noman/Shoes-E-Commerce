@@ -42,11 +42,28 @@ const addProduct = asyncHandler(async (req, res) => {
 });
 
 const getProductById = asyncHandler(async (req, res) => {
-  const productId = req.body._id;
+  const productId = req.query._id;
   if (!productId) {
     throw new ApiError(400, "Product ID is required");
   }
   const foundProduct = await Product.findOne({ _id: productId });
+  if (!foundProduct) {
+    throw new ApiError(404, "Product not found");
+  }
+  return res
+    .status(201)
+    .json(new ApiResponse(200, foundProduct, "Product Fetched Successfully"));
+});
+
+const getProductByName = asyncHandler(async (req, res) => {
+  const Name = req.query.name;
+  if (!Name) {
+    throw new ApiError(400, "Product name is required");
+  }
+  const searchPattern = new RegExp(Name, "g");
+  const foundProduct = await Product.find({
+    productName: { $regex: searchPattern },
+  });
   if (!foundProduct) {
     throw new ApiError(404, "Product not found");
   }
@@ -118,10 +135,30 @@ const deleteProduct = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, product, "product deleted successfully"));
 });
+
+const getProductByCategory = asyncHandler(async (req, res) => {
+  const Name = req.query.category;
+  if (!Name) {
+    throw new ApiError(400, "Product category is required");
+  }
+
+  const foundProduct = await Product.find({
+    category: Name,
+  });
+  if (!foundProduct) {
+    throw new ApiError(404, "Product not found");
+  }
+  return res
+    .status(201)
+    .json(new ApiResponse(200, foundProduct, "Product Fetched Successfully"));
+});
+
 export {
   addProduct,
   getProductById,
   getAllProducts,
   updateProduct,
   deleteProduct,
+  getProductByName,
+  getProductByCategory
 };

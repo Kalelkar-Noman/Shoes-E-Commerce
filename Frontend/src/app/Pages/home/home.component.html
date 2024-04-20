@@ -23,13 +23,20 @@
   <div class="cards_categories">
     <h1>Categories</h1>
     <ul>
-      <li>All</li>
-      <li>Boots</li>
-      <li>Shoes</li>
-      <li>Sandals</li>
-      <li>Slipper</li>
-      <li>Jogging</li>
+      <li (click)="loadAllCards()">All</li>
+      <li (click)="loadCategoryData('boots')">Boots</li>
+      <li (click)="loadCategoryData('shoes')">Shoes</li>
+      <li (click)="loadCategoryData('sandals')">Sandals</li>
+      <li (click)="loadCategoryData('slipper')">Slipper</li>
+      <li (click)="loadCategoryData('jogging')">Jogging</li>
     </ul>
   </div>
-  <app-product-cards [cardItems]="items" />
+  <div *ngIf="cards.length > 0; else elseBlock">
+    <app-product-cards [cardItems]="cards" />
+  </div>
+  <ng-template #elseBlock>
+    <div class="empty-card">
+      <h1>No Product</h1>
+    </div>
+  </ng-template>
 </section>

@@ -120,6 +120,22 @@ nav a {
   display: flex;
 }
 
+.search-results {
+  margin: 2vh 0 0 0;
+  height: 70dvh;
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  overflow: scroll;
+  overflow-x: hidden;
+  gap: 3vw;
+  align-items: center;
+  padding: 1dvh;
+  cursor: pointer;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media (max-width: 767px) {
   .hamburger {
     display: block;

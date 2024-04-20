@@ -9,17 +9,24 @@
     <li>Man</li>
     <li>Women</li>
     <li>Kids</li>
-    <li><a routerLink="home/admin">Admin</a></li>
+    <li><a routerLink="about-us">About US</a></li>
+    <li *ngIf="access"><a routerLink="home/admin">Admin</a></li>
   </ul>
 
   <ul class="icon_items">
-    <li title="Cart"><i class="ri-shopping-cart-line"></i></li>
+    <li title="Cart">
+      <i
+        [routerLink]="!islogin ? 'auth' : 'check-out'"
+        class="ri-shopping-cart-line"
+      ></i>
+    </li>
     <li title="Search">
       <i class="ri-search-line" (click)="toggleSearch()"></i>
     </li>
     <li id="profile" title="My Profile">
-      <a routerLink="profile"><i class="ri-user-line"></i></a>
-      <div class="drop_down">
+      <!-- routerLink="profile" -->
+      <a (click)="loginUser()"><i class="ri-user-line"></i></a>
+      <div *ngIf="islogin" class="drop_down">
         <ul>
           <li><a routerLink="profile">Settings</a></li>
           <li><a routerLink="check-out">Check Out</a></li>
@@ -42,7 +49,17 @@
   </button>
   <div class="search_field">
     <label for="search"><i class="ri-search-line"></i></label>
-    <input type="text" id="search" name="search" placeholder="Search here..." />
-    <i class="ri-close-line"></i>
+    <input
+      type="text"
+      [(ngModel)]="searchInput"
+      (keypress)="searchItems($event)"
+      id="search"
+      name="search"
+      placeholder="Search here..."
+    />
+    <i (click)="clearCards()" class="ri-close-line"></i>
+  </div>
+  <div *ngIf="cards.length > 0" class="search-results">
+    <app-product-cards [cardItems]="cards" />
   </div>
 </div>

@@ -1,6 +1,5 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
-import { User } from "../models/user.model.js";
 import { OrderHistory } from "../models/orderHistory.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
@@ -9,8 +8,7 @@ const getUserOrders = asyncHandler(async (req, res) => {
   if (!userId) {
     throw new ApiError(400, "User Id is required");
   }
-  const user = await User.findById(userId).populate("orderHistory"); // Populates the orderHistory field
-
+  const user = await OrderHistory.find({ user: userId });
   return res
     .status(201)
     .json(new ApiResponse(200, user, "Product Added Successfully"));

@@ -37,6 +37,11 @@ const userSchema = new Schema({
   pincode: {
     type: Number,
   },
+  usertype: {
+    type: String,
+    default: "normal",
+    enum: ["normal", "admin"],
+  },
 });
 
 export const User = mongoose.model("User", userSchema);

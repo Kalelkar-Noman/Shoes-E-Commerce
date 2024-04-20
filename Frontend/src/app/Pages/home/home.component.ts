@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import Swiper from 'swiper';
@@ -17,16 +17,21 @@ interface ItemObject {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor, RouterLink, ProductCardsComponent],
+  imports: [NgFor, NgIf, RouterLink, ProductCardsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  cards: any = [];
   ngOnInit() {
+    this.loadAllCards();
     // console.log('hello');
-    // axios.get('http://localhost:3000/api/v1/products/getallproducts').then((res) => {
-    //   console.log(res.data);
-    // });
+    // axios
+    //   .get('http://localhost:3000/api/v1/products/getallproducts')
+    //   .then((res) => {
+    //     console.log(res.data.data);
+    //     this.cards = res.data.data;
+    //   });
     // axios
     //   .post('http://localhost:3000/api/v1/products/addproduct', {
     //     productName: 'Second product',
@@ -50,50 +55,75 @@ export class HomeComponent {
     //   });
   }
 
-  items: Array<ItemObject> = [
-    {
-      Name: 'Not Provided',
-      Image: '../../../assets/dev-images/card-1.png',
-      Price: 100,
-      Description: 'Running Nike- Collection 2022',
-      Rating: '5.0',
-    },
-    {
-      Name: 'Not Provided',
-      Image: '../../../assets/dev-images/card-1.png',
-      Price: 100,
-      Description: 'Running Nike- Collection 2022',
-      Rating: '5.0',
-    },
-    {
-      Name: 'Not Provided',
-      Image: '../../../assets/dev-images/card-1.png',
-      Price: 100,
-      Description: 'Running Nike- Collection 2022',
-      Rating: '5.0',
-    },
-    {
-      Name: 'Not Provided',
-      Image: '../../../assets/dev-images/card-1.png',
-      Price: 100,
-      Description: 'Running Nike- Collection 2022',
-      Rating: '5.0',
-    },
-    {
-      Name: 'Not Provided',
-      Image: '../../../assets/dev-images/card-1.png',
-      Price: 100,
-      Description: 'Running Nike- Collection 2022',
-      Rating: '5.0',
-    },
-    {
-      Name: 'Not Provided',
-      Image: '../../../assets/dev-images/card-1.png',
-      Price: 100,
-      Description: 'Running Nike- Collection 2022',
-      Rating: '5.0',
-    },
-  ];
+  loadAllCards() {
+    axios
+      .get('http://localhost:3000/api/v1/products/getallproducts')
+      .then((res) => {
+        console.log(res.data.data);
+        this.cards = res.data.data;
+      });
+  }
+  loadCategoryData(categoryName: string) {
+    console.log(categoryName);
+    axios
+      .get('http://localhost:3000/api/v1/products/getproductbycategory', {
+        params: {
+          category: categoryName,
+        },
+      })
+      .then((response) => {
+        // handle success
+        this.cards = response.data.data;
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
+  }
+  // items: Array<ItemObject> = [
+  //   {
+  //     Name: 'Not Provided',
+  //     Image: '../../../assets/dev-images/card-1.png',
+  //     Price: 100,
+  //     Description: 'Running Nike- Collection 2022',
+  //     Rating: '5.0',
+  //   },
+  //   {
+  //     Name: 'Not Provided',
+  //     Image: '../../../assets/dev-images/card-1.png',
+  //     Price: 100,
+  //     Description: 'Running Nike- Collection 2022',
+  //     Rating: '5.0',
+  //   },
+  //   {
+  //     Name: 'Not Provided',
+  //     Image: '../../../assets/dev-images/card-1.png',
+  //     Price: 100,
+  //     Description: 'Running Nike- Collection 2022',
+  //     Rating: '5.0',
+  //   },
+  //   {
+  //     Name: 'Not Provided',
+  //     Image: '../../../assets/dev-images/card-1.png',
+  //     Price: 100,
+  //     Description: 'Running Nike- Collection 2022',
+  //     Rating: '5.0',
+  //   },
+  //   {
+  //     Name: 'Not Provided',
+  //     Image: '../../../assets/dev-images/card-1.png',
+  //     Price: 100,
+  //     Description: 'Running Nike- Collection 2022',
+  //     Rating: '5.0',
+  //   },
+  //   {
+  //     Name: 'Not Provided',
+  //     Image: '../../../assets/dev-images/card-1.png',
+  //     Price: 100,
+  //     Description: 'Running Nike- Collection 2022',
+  //     Rating: '5.0',
+  //   },
+  // ];
 
   devImages = [
     {

@@ -21,7 +21,7 @@ const productSchema = new Schema({
   },
   rating: {
     type: String,
-    defaultValue: "4.5",
+    default: "4.5",
   },
   image: {
     type: String,

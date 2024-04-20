@@ -3,16 +3,16 @@
   <div class="cards" *ngFor="let item of cardItems">
     <div>
       <!-- src="../../../assets/dev-images/card-1.png" -->
-      <img [src]="item.Image" alt="shoes images" />
+      <img [src]="item.image" onerror="src='../../../assets/dev-images/card-1.png'" alt="shoes images" />
     </div>
     <div class="card_mid">
       <div class="card_name_price">
-        <p>{{ item.Name }}</p>
-        <span>{{ item.Price }}$</span>
+        <p>{{ item.productName }}</p>
+        <span>{{ item.price }}$</span>
       </div>
-      <small>{{ item.Description }}</small>
-      <small>{{ item.Rating }}</small>
-      <button routerLink="home/product-details">Buy Now</button>
+      <small>{{ item.description }}</small>
+      <small>{{ item.rating }}</small>
+      <button (click)="navigateToDetails(item._id)">Buy Now</button>
     </div>
   </div>
 </div>

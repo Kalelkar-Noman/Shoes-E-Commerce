@@ -1,52 +1,53 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import axios from 'axios';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css',
 })
 export class RegistrationComponent {
-  wrapper = document.getElementById('wrapper');
-  ngAfterViewInit() {
-    this.wrapper = document.getElementById('wrapper');
-  }
-  // signUpLink = document.getElementById('signUp-link');
-  // signInLink = document.getElementById('signIn-link');
-
-  signIn(event: any) {
-    event.preventDefault();
-    if (this.wrapper) {
-      this.wrapper?.classList.add('animate-signUp');
-      this.wrapper?.classList.remove('animate-signIn');
-    } else {
-      console.log('na mila');
-    }
-
-    console.log('in');
-  }
-
-  signUp(event: any) {
-    event.preventDefault();
-
-    if (this.wrapper) {
-      this.wrapper?.classList.add('animate-signIn');
-      this.wrapper?.classList.remove('animate-signUp');
-    } else {
-      console.log('na mila');
-    }
-
-    console.log('up');
-  }
-
-  // signUpLink.addEventListener('click', () => {
-  //     wrapper.classList.add('animate-signIn');
-  //     wrapper.classList.remove('animate-signUp');
+  username: string = '';
+  email: string = '';
+  password: string = '';
+  // axios.post('/user', {
+  //   firstName: 'Fred',
+  //   lastName: 'Flintstone'
+  // })
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
   // });
-
-  // signInLink.addEventListener('click', () => {
-  //     wrapper.classList.add('animate-signUp');
-  //     wrapper.classList.remove('animate-signIn');
-  // });
+  signUp() {
+    axios
+      .post('http://localhost:3000/api/v1/users/register', {
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  login() {
+    axios
+    .post('http://localhost:3000/api/v1/users/login', {
+      email: this.email,
+      password: this.password,
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
 }

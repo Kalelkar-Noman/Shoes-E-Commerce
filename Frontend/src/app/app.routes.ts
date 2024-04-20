@@ -40,7 +40,7 @@ export const routes: Routes = [
     title: 'Profile',
   },
   {
-    path: 'home/product-details',
+    path: 'home/product-details/:id',
     component: ProductDetailsComponent,
     title: 'Product-Details',
   },

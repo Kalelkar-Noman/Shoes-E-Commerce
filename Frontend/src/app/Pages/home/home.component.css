@@ -9,7 +9,7 @@
 }
 
 .products {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: #696969;
   color: white;
   padding: 3vh 6vw;
@@ -32,4 +32,11 @@
   border: 1px solid black;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
+}
+
+.empty-card {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
