@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
 import { ProductCardsComponent } from '../../Components/product-cards/product-cards.component';
-// import axios from 'axios';
+import axios from 'axios';
 
 interface ItemObject {
   Image: string;
@@ -22,12 +22,33 @@ interface ItemObject {
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  // ngOnInit() {
-  //   console.log('hello');
-  //   axios.get('http://localhost:3000/products').then((res) => {
-  //     console.log(res.data);
-  //   });
-  // }
+  ngOnInit() {
+    // console.log('hello');
+    // axios.get('http://localhost:3000/api/v1/products/getallproducts').then((res) => {
+    //   console.log(res.data);
+    // });
+    // axios
+    //   .post('http://localhost:3000/api/v1/products/addproduct', {
+    //     productName: 'Second product',
+    //     price: 564,
+    //     description: 'Some description',
+    //     image: 'url aayega yaha',
+    //     otherImages: [
+    //       {
+    //         first: 'url here of first',
+    //       },
+    //       {
+    //         second: 'url here',
+    //       },
+    //     ],
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+  }
 
   items: Array<ItemObject> = [
     {

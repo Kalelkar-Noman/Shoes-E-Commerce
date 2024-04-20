@@ -3,11 +3,9 @@ import mongoose, { Schema } from "mongoose";
 const userSchema = new Schema({
   username: {
     type: String,
-    required: true,
-    unique: true,
     lowercase: true,
     trim: true,
-    index: true,
+    required: [true, "Name is required"],
   },
   email: {
     type: String,
@@ -15,16 +13,29 @@ const userSchema = new Schema({
     unique: true,
     lowecase: true,
     trim: true,
-  },
-  fullName: {
-    type: String,
-    required: true,
-    trim: true,
-    index: true,
+    required: [true, "Email is required"],
   },
   password: {
     type: String,
     required: [true, "Password is required"],
+  },
+  phonenumber: {
+    type: Number,
+  },
+  address: {
+    type: String,
+  },
+  country: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  pincode: {
+    type: Number,
   },
 });
 
