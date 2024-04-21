@@ -17,7 +17,12 @@
           >
             Edit
           </button>
-          <button class="btn btn-sm btn-primary" id="Save" *ngIf="edit">
+          <button
+            (click)="updateProfile()"
+            class="btn btn-sm btn-primary"
+            id="Save"
+            *ngIf="edit"
+          >
             Save
           </button>
         </div>

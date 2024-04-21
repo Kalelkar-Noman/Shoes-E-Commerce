@@ -1,5 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-check-out',
@@ -18,11 +19,13 @@ export class CheckOutComponent {
     {
       id: '1',
       name: 'Nike',
-      img: '',
+      img: '../../../assets/dev-images/card-1.png',
       price: '',
       quantity: '5',
     },
   ];
   minusbtn(id: any) {}
   plusbtn(id: any) {}
+
+  handleContinue() {}
 }

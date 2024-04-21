@@ -38,11 +38,11 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 const loginUser = asyncHandler(async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, password } = req.body;
   console.log(email);
 
-  if (!username && !email) {
-    throw new ApiError(400, "username or email is required");
+  if (!password || !email) {
+    throw new ApiError(400, "password or email is required");
   }
 
   const user = await User.findOne({
@@ -76,6 +76,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     phonenumber,
     state,
     zipcode,
+    address,
   } = req.body;
 
   if (!username || !password || !email) {
@@ -98,6 +99,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
         country,
         zipcode,
         phonenumber,
+        address,
       },
     },
     { new: true }
@@ -108,4 +110,38 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, user, "Account details updated successfully"));
 });
 
-export { registerUser, loginUser, updateAccountDetails };
+const getuserById = asyncHandler(async (req, res) => {
+  const userId = req.query._id;
+  if (!userId) {
+    throw new ApiError(400, "user ID is required");
+  }
+  const founduser = await User.findOne({ _id: userId }).select("-password");
+  if (!founduser) {
+    throw new ApiError(404, "user not found");
+  }
+  return res
+    .status(201)
+    .json(new ApiResponse(200, founduser, "User Fetched Successfully"));
+});
+
+const getuserByIdWithPass = asyncHandler(async (req, res) => {
+  const userId = req.query._id;
+  if (!userId) {
+    throw new ApiError(400, "user ID is required");
+  }
+  const founduser = await User.findOne({ _id: userId });
+  if (!founduser) {
+    throw new ApiError(404, "user not found");
+  }
+  return res
+    .status(201)
+    .json(new ApiResponse(200, founduser, "User Fetched Successfully"));
+});
+
+export {
+  registerUser,
+  loginUser,
+  updateAccountDetails,
+  getuserById,
+  getuserByIdWithPass,
+};

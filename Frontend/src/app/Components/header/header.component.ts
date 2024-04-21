@@ -19,6 +19,26 @@ export class HeaderComponent {
   cards: any = [];
 
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    let userToken = localStorage.getItem('userToken');
+    if (userToken != null && userToken != undefined) {
+      axios
+        .get('http://localhost:3000/api/v1/users/getuserbyid', {
+          params: {
+            _id: userToken,
+          },
+        })
+        .then((res) => {
+          if (res.data.data) {
+            this.islogin = true;
+            if (res.data.data.usertype != 'normal') {
+              this.access = true;
+            }
+          }
+        });
+    }
+  }
   searchItems(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       axios
@@ -55,6 +75,12 @@ export class HeaderComponent {
     } else {
       this.router.navigate(['profile']);
     }
+  }
+
+  logOut() {
+    localStorage.removeItem('userToken');
+    this.islogin = false;
+    this.access = false;
   }
 
   clearCards() {
