@@ -9,6 +9,7 @@ import {
   getProductByCategory,
 } from "../controllers/product.controller.js";
 const router = Router();
+// product routes
 router.route("/addproduct").post(addProduct);
 router.route("/getproductbyid").get(getProductById);
 router.route("/getproductbyname").get(getProductByName);

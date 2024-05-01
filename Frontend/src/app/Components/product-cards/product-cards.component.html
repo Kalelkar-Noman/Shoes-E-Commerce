@@ -2,8 +2,11 @@
   <!-- Cards -->
   <div class="cards" *ngFor="let item of cardItems">
     <div>
-      <!-- src="../../../assets/dev-images/card-1.png" -->
-      <img [src]="item.image" onerror="src='../../../assets/dev-images/card-1.png'" alt="shoes images" />
+      <img
+        [src]="item.image"
+        onerror="src='../../../assets/dev-images/card-1.png'"
+        alt="shoes images"
+      />
     </div>
     <div class="card_mid">
       <div class="card_name_price">

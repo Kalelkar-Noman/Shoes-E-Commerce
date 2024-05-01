@@ -29,15 +29,11 @@ export class ProductDetailsComponent {
         .then((response) => {
           // handle success
           this.details = response.data.data;
-
-          // this.cards = response.data.data;
         })
         .catch((error) => {
           // handle error
           console.log(error);
         });
-      // this.dataAvailable = true;
-      // this.dataFetcher();
     }
     if (this.details) {
       axios

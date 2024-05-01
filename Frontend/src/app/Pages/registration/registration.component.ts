@@ -32,16 +32,7 @@ export class RegistrationComponent {
         });
     }
   }
-  // axios.post('/user', {
-  //   firstName: 'Fred',
-  //   lastName: 'Flintstone'
-  // })
-  // .then(function (response) {
-  //   console.log(response);
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
+
   signUp() {
     axios
       .post('http://localhost:3000/api/v1/users/register', {
@@ -65,6 +56,7 @@ export class RegistrationComponent {
         }
       });
   }
+  
   login() {
     axios
       .post('http://localhost:3000/api/v1/users/login', {

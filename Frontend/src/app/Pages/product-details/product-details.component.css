@@ -25,7 +25,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* -webkit-mask-image: url(../../../assets/dev-images/akash/Flocken-removebg-preview.png); */
   mask-image: url(../../../assets/dev-images/akash/Flocken-removebg-preview.png);
   background-repeat: no-repeat;
 }
@@ -39,7 +38,6 @@
 .product-image img {
   width: 75%;
   height: 75%;
-  /* -webkit-mask-image: url(../../../assets/dev-images/Flocken-removebg-preview.png); */
   mask-image: url(../../../assets/dev-images/akash/Flocken-removebg-preview.png);
 }
 

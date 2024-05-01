@@ -51,11 +51,6 @@ export class ProfileComponent {
             this.state = data.state ? data.state : this.state;
             this.country = data.country ? data.country : this.country;
             this.pincode = data.pincode ? data.pincode : this.pincode;
-
-            // this.islogin = true;
-            // if (res.data.data.usertype != 'normal') {
-            //   this.access = true;
-            // }
           }
         });
     } else {
@@ -83,21 +78,6 @@ export class ProfileComponent {
   }
 
   updateProfile() {
-    // axios
-    //   .patch('http://localhost:3000/api/v1/users/updateaccountdetails', {
-    //     params: {
-    //       id: this.userToken,
-    //       username: this.phoneNumber,
-    //       password: this.passwordtext,
-    //       email: this.emailaddress,
-    //       city: this.city,
-    //       country: this.country,
-    //       phonenumber: this.phoneNumber,
-    //       state: this.state,
-    //       zipcode: this.pincode,
-    //     },
-    //   })
-
     axios({
       method: 'patch',
       url: 'http://localhost:3000/api/v1/users/updateaccountdetails',
