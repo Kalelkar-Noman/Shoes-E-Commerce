@@ -14,7 +14,7 @@
             id="Edit"
             (click)="editEnable()"
           >
-            Edit
+            {{ !edit ? "Edit" : "Cancel" }}
           </button>
           <button
             (click)="updateProfile()"

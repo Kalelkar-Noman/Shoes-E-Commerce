@@ -20,10 +20,10 @@ export class GlobalItemsService {
     this._UserLoggedInStatus.next(status);
   }
 
-  //User Details
-  private _UserDetails = new BehaviorSubject<any[]>([]);
-  UserDetails = this._UserDetails.asObservable();
-  setUserDetails(details: any[]) {
-    this._UserDetails.next(details);
+//  addtocart
+  private _UserCart = new BehaviorSubject<any>([]);
+  UserCart = this._UserCart.asObservable();
+  setCart(cart: any) {
+    this._UserCart.next(cart);
   }
 }

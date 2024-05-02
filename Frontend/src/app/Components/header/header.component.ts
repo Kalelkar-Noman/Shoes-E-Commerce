@@ -21,7 +21,7 @@ export class HeaderComponent {
   cards: any = [];
   yourAccessServiceSubscription: Subscription;
   yourIsLoggedInServiceSubscription: Subscription;
-
+  yourCartSubscription: Subscription;
   constructor(
     private router: Router,
     private globalService: GlobalItemsService
@@ -34,6 +34,11 @@ export class HeaderComponent {
       this.globalService.UserLoggedInStatus.subscribe((data: boolean) => {
         this.islogin = data;
       });
+    this.yourCartSubscription = this.globalService.UserCart.subscribe(
+      (data: any) => {
+        this.myCartArrayOfObjects = data;
+      }
+    );
   }
 
   ngOnInit() {

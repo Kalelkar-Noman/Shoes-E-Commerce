@@ -3,7 +3,7 @@
   <div class="cards" *ngFor="let item of cardItems">
     <div>
       <img
-        [src]="item.image"
+        [src]="'http://localhost:3000/' + item.image"
         onerror="src='../../../assets/dev-images/card-1.png'"
         alt="shoes images"
       />

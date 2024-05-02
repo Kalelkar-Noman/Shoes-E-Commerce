@@ -36,12 +36,14 @@
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 8px;
+  min-height: 25dvh;
 }
 
 .admin_img_preview > img {
   display: block;
-  max-width: 500px;
-  width: calc(100vw - 5rem);
+  max-width: 25dvh;
+  /* max-width: 500px; */
+  /* width: calc(100vw - 5rem);*/
 }
 
 .admin_button_container {

@@ -2,6 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { Product } from "../models/product.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import fs from "fs";
 
 const addProduct = asyncHandler(async (req, res) => {
   const {
@@ -22,12 +23,15 @@ const addProduct = asyncHandler(async (req, res) => {
     throw new ApiError(400, "All fields are required");
   }
 
+  const fileName = req.file.filename;
+  console.log(fileName);
+
   const newProduct = await Product.create({
     productName,
     price,
     description,
     rating,
-    image,
+    image: fileName,
     category,
     otherImages,
   });
@@ -83,32 +87,34 @@ const getAllProducts = asyncHandler(async (req, res) => {
 });
 
 const updateProduct = asyncHandler(async (req, res) => {
-  const {
-    id,
-    productName,
-    category,
-    price,
-    description,
-    rating,
-    image,
-    otherImages,
-  } = req.body;
+  const { id, productName, category, price, description, rating, image } =
+    req.body;
 
-  if (!id || !productName || !price || !description || !category || !image) {
+  if (!id || !productName || !price || !description || !category) {
     throw new ApiError(400, "All fields are required");
   }
+  const foundProduct = await Product.findOne({ _id: id });
 
+  try {
+    var filePath = `D:/Current-Repository/Shoes-E-Commerce/Backend/public/${foundProduct.image}`;
+    fs.unlinkSync(filePath);
+    console.log(`Image ${foundProduct.image} deleted successfully.`);
+  } catch (err) {
+    console.error(`Error deleting image: ${err}`);
+    // Handle errors appropriately (e.g., log the error or return an error response)
+  }
+  const fileName = req.file.filename;
   const updatedProduct = await Product.findByIdAndUpdate(
     id,
     {
       $set: {
-        productName,
-        price,
-        description,
+        productName: productName,
+        price: price,
+        description: description,
         rating: rating ? rating : "4.9",
-        image,
-        category,
-        otherImages,
+        image: fileName,
+        category: category,
+        otherImages: null,
       },
     },
     { new: true }
@@ -127,6 +133,15 @@ const updateProduct = asyncHandler(async (req, res) => {
 
 const deleteProduct = asyncHandler(async (req, res) => {
   const { id } = req.body;
+
+  const foundProduct = await Product.findOne({ _id: id });
+  try {
+    var filePath = `D:/Current-Repository/Shoes-E-Commerce/Backend/public/${foundProduct.image}`;
+    fs.unlinkSync(filePath);
+  } catch (err) {
+    console.error(`Error deleting image: ${err}`);
+    // Handle errors appropriately (e.g., log the error or return an error response)
+  }
   const product = await Product.findByIdAndDelete(id);
   if (!product) {
     throw new ApiError(404, "Product not found");

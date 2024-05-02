@@ -1,17 +1,29 @@
 <div *ngIf="access" id="admin_container" class="headergap">
   <div class="admin_input_conatiner">
-    <div class="admin_img_preview">
+    <!-- <div class="admin_img_preview">
       <img [src]="imagePreviews" alt="no image to preview" />
+    </div> -->
+    <div class="admin_img_preview">
+      <img *ngIf="mainImageUrl" [src]="mainImageUrl" alt="Preview" />
+    </div>
+    <div>
+      <label for="mainImage">Main Image here</label>
+      <input
+        id="mainImage"
+        type="file"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+      />
     </div>
 
-    <input
+    <!-- <input
       type="text"
       placeholder="Image link here"
       name="imagein"
       id="imagein"
       [(ngModel)]="imagePreviewsLink"
       (change)="onchange()"
-    />
+    /> -->
     <input
       id="Item_id"
       type="text"
@@ -66,14 +78,18 @@
     >
       <h3>ID:{{ item.item_id }}</h3>
       <div class="flex">
-        <img [src]="item.item_image" alt="image" class="data_image" />
+        <img
+          [src]="'http://localhost:3000/' + item.image"
+          alt="image"
+          class="data_image"
+        />
         <div>
-          <p>Category :{{ item.item_category }}</p>
-          <p>Name :{{ item.item_name }}</p>
-          <p>Price :{{ item.item_price }}</p>
+          <p>Category :{{ item.category }}</p>
+          <p>Name :{{ item.productName }}</p>
+          <p>Price :{{ item.price }}</p>
         </div>
       </div>
-      <p class="description">Description : {{ item.item_description }}</p>
+      <p class="description">Description : {{ item.description }}</p>
     </div>
   </div>
 </div>
