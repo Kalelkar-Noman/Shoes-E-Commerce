@@ -24,7 +24,14 @@
 
 .ab-top-content {
   display: flex;
-  gap: 3rem;
+  gap: 6rem;
+}
+.two-part{
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .ab-top h1 {
@@ -33,26 +40,33 @@
   line-height: 2rem;
 }
 
-.ab-top p {
+.two-part p {
   display: inline-block;
-  width: 25rem;
+  /* width: 25rem; */
 }
 
 .ab-top-card {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-gap: 41px;
+  justify-content: center;
   align-items: center;
+  /* height: 100vh; */
+  /* display: flex;
+  justify-content: space-evenly;
+  align-items: center; */
 }
 
 .ab-top-card .f1 {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 23vw;
-  height: 15vh;
-  border-radius: 15px;
-  padding: 1rem;
-  gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 18vh;
+    border-radius: 15px;
+    padding: 1rem;
+    gap: 0.5rem;
+
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -74,6 +88,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .ab-bottom {
@@ -89,6 +104,7 @@
 
 .ab-bottom .ab-team {
   width: 40dvw;
+  text-align: center;
 }
 
 #ab-our-team {
@@ -172,3 +188,46 @@
 .add-to-cart-btn .icon i {
   font-size: 1.1rem;
 }
+
+@media only screen and (max-width: 866px) {
+  .ab-top-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .ab-top h1 {
+    font-size: 6vw;
+    /* min-width: 30rem; */
+    line-height: 2.5rem;
+  }
+
+  .ab-top-card .f1{
+    width: 36vw;
+  }
+
+}
+@media only screen and (max-width: 633px) {
+  .ab-top-card .f1{
+    width: 67vw;
+    height: 20vh;
+  }
+  .two-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 633px) {
+  .ab-top h1 {
+    font-size: 6vw;
+        line-height: 2rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .ab-top {
+    padding: 1rem 3rem;
+  }
+}
+
