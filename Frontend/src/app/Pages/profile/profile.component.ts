@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { GlobalItemsService } from '../../Services/global-items.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,9 +23,12 @@ export class ProfileComponent {
   city: string = '';
   state: string = '';
   country: string = '';
-  pincode: string = '';
+  pincode: number = 0;
   userToken: any = '';
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private globalService: GlobalItemsService
+  ) {}
 
   ngOnInit() {
     this.userToken = localStorage.getItem('userToken');
@@ -67,6 +71,8 @@ export class ProfileComponent {
   }
   LogOut() {
     localStorage.removeItem('userToken');
+    this.globalService.setAccess(false);
+    this.globalService.setUserLoggedInStatus(false);
     this.router.navigate(['/']);
   }
   editEnable() {
@@ -78,6 +84,8 @@ export class ProfileComponent {
   }
 
   updateProfile() {
+    console.log(this.pincode);
+
     axios({
       method: 'patch',
       url: 'http://localhost:3000/api/v1/users/updateaccountdetails',
@@ -86,11 +94,12 @@ export class ProfileComponent {
         username: this.phoneNumber,
         password: this.passwordtext,
         email: this.emailaddress,
+        address: this.address,
         city: this.city,
         country: this.country,
         phonenumber: this.phoneNumber,
         state: this.state,
-        zipcode: this.pincode,
+        pincode: this.pincode,
       },
     })
       .then((then) => {

@@ -56,14 +56,14 @@
 
 .admin_button_container button {
   display: inline-block;
+  font-size: 1.2rem;
   background-color: var(--first-color);
   width: 100%;
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
-  /* color: #fff; */
   font-weight: var(--font-semi-bold);
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   -webkit-transition: -webkit-box-shadow 0.4s;

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { GlobalItemsService } from '../../Services/global-items.service';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,10 @@ export class RegistrationComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private globalService: GlobalItemsService
+  ) {}
   ngOnInit() {
     let userToken = localStorage.getItem('userToken');
     if (userToken != null && userToken != undefined) {
@@ -27,6 +31,10 @@ export class RegistrationComponent {
         })
         .then((res) => {
           if (res.data.data) {
+            if (res.data.data.usertype == 'admin') {
+              this.globalService.setAccess(true);
+            }
+            this.globalService.setUserLoggedInStatus(true);
             this.router.navigate(['/']);
           }
         });
@@ -42,6 +50,7 @@ export class RegistrationComponent {
       })
       .then((response) => {
         localStorage.setItem('userToken', response.data.data._id);
+        this.globalService.setUserLoggedInStatus(true);
         this.router.navigate(['/']);
       })
       .catch((error) => {
@@ -56,7 +65,7 @@ export class RegistrationComponent {
         }
       });
   }
-  
+
   login() {
     axios
       .post('http://localhost:3000/api/v1/users/login', {
@@ -65,6 +74,12 @@ export class RegistrationComponent {
       })
       .then((response) => {
         localStorage.setItem('userToken', response.data.data.user._id);
+        console.log(response);
+        
+        if (response.data.data.user.usertype == 'admin') {
+          this.globalService.setAccess(true);
+        }
+        this.globalService.setUserLoggedInStatus(true);
         this.router.navigate(['/']);
       })
       .catch((error) => {

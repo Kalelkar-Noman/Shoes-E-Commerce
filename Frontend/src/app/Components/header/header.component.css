@@ -136,6 +136,14 @@ nav a {
   justify-content: center;
 }
 
+.empty-card {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 767px) {
   .hamburger {
     display: block;
@@ -147,6 +155,7 @@ nav a {
 
   nav .mobile_nav_active {
     display: flex;
+    z-index: 2;
     background-color: aqua;
     height: 100dvh;
     width: 40dvw;

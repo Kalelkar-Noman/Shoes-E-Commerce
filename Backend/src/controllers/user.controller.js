@@ -75,7 +75,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     country,
     phonenumber,
     state,
-    zipcode,
+    pincode,
     address,
   } = req.body;
 
@@ -97,7 +97,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
         city,
         state,
         country,
-        zipcode,
+        pincode,
         phonenumber,
         address,
       },
