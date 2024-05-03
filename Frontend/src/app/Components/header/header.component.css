@@ -42,7 +42,8 @@ nav a {
   padding: 5vh 10vw;
   height: 100vh;
   width: 100vw;
-  background-color: #525252;
+  background-color: #f4eef9;
+  color: #c4a5db;
   font-size: x-large;
 }
 
@@ -161,7 +162,8 @@ nav a {
   nav .mobile_nav_active {
     display: flex;
     z-index: 2;
-    background-color: aqua;
+    background-color: #f4eef9;
+    color: #9765b8;
     height: 100dvh;
     width: 40dvw;
     min-width: 200px;
