@@ -5,7 +5,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class GlobalItemsService {
-  constructor() {}
+  constructor() {
+    this.setCart(localStorage.getItem('myCartData'));
+  }
   // Access
   private _UserAccess = new BehaviorSubject<boolean>(false);
   UserAccess = this._UserAccess.asObservable();
@@ -20,7 +22,7 @@ export class GlobalItemsService {
     this._UserLoggedInStatus.next(status);
   }
 
-//  addtocart
+  //  addtocart
   private _UserCart = new BehaviorSubject<any>([]);
   UserCart = this._UserCart.asObservable();
   setCart(cart: any) {

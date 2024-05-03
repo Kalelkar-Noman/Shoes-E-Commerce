@@ -15,13 +15,12 @@ import { Subscription } from 'rxjs';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  access: boolean = false;
+  access: Boolean = false;
   islogin: Boolean = false;
   searchInput: string = '';
   cards: any = [];
   yourAccessServiceSubscription: Subscription;
   yourIsLoggedInServiceSubscription: Subscription;
-  yourCartSubscription: Subscription;
   constructor(
     private router: Router,
     private globalService: GlobalItemsService
@@ -34,11 +33,11 @@ export class HeaderComponent {
       this.globalService.UserLoggedInStatus.subscribe((data: boolean) => {
         this.islogin = data;
       });
-    this.yourCartSubscription = this.globalService.UserCart.subscribe(
-      (data: any) => {
-        this.myCartArrayOfObjects = data;
-      }
-    );
+    // this.yourCartSubscription = this.globalService.UserCart.subscribe(
+    //   (data: any) => {
+    //     this.myCartArrayOfObjects = data;
+    //   }
+    // );
   }
 
   ngOnInit() {
@@ -148,7 +147,7 @@ export class HeaderComponent {
       }
     } else {
       this.myCartArrayOfObjects.push(mycartobj);
-
+      this.globalService.setCart(this.myCartArrayOfObjects);
       localStorage.setItem(
         'myCartData',
         JSON.stringify(this.myCartArrayOfObjects)
@@ -160,6 +159,10 @@ export class HeaderComponent {
 
   cartOpenClose() {
     document.getElementById('mySidepanel')?.classList.toggle('active');
+    let localItem = localStorage.getItem('myCartData');
+    if (localItem != null) {
+      this.myCartArrayOfObjects = JSON.parse(localItem);
+    }
   }
 
   minusbtn(id: any) {

@@ -76,11 +76,11 @@
   >
   <!-- <p>This is the side panel content.</p> -->
   <span *ngIf="myCartArrayOfObjects.length > 0; else elseBlock">
-    <h4 *ngIf="true">Log in to order</h4>
+    <h4 *ngIf="!islogin">Log in to order</h4>
     <div *ngFor="let elem of myCartArrayOfObjects" class="cart-item">
       <h3>{{ elem.name }}</h3>
       <div class="cart-side-panel">
-        <img [src]="elem.img" loading="lazy" alt="Product Image" />
+        <img [src]="'http://localhost:3000/' + elem.img" loading="lazy" alt="Product Image" />
         <div class="sidepanel-quantity-price">
           <p class="price">${{ elem.price }}</p>
           <div class="quantity">

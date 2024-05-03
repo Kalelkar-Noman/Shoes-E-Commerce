@@ -3,15 +3,13 @@
   <div class="product-sec1">
     <div class="product-left">
       <div class="product-image">
-<!-- <div class="mask"></div> -->
-          <img
-            class="sho-image"
-            src="../../../assets/dev-images/card-1.png"
-            alt="shoes images"
-          />
-
+        <!-- <div class="mask"></div> -->
+        <img
+          class="sho-image"
+          [src]="'http://localhost:3000/' + details.image"
+          alt="shoes images"
+        />
       </div>
-
     </div>
     <div class="product-right">
       <div class="product-desc">
@@ -56,7 +54,7 @@
           <div class="pluse-minus">hi</div>
         </div>
         <div class="add-buy">
-          <button class="add-to-cart-btn">
+          <button (click)="addToCart()" class="add-to-cart-btn">
             <span class="icon"><i class="ri-shopping-cart-line"></i></span>
             Add to Cart
           </button>
