@@ -1,6 +1,7 @@
 .product-page {
   width: 100%;
   min-height: 100dvh;
+  background-color: #ebe0f4;
 }
 
 .product-sec1 {
@@ -29,8 +30,9 @@
   border-radius: 169px 69px 162px 73px;
 -webkit-border-radius: 169px 69px 162px 73px;
 -moz-border-radius: 169px 69px 162px 73px;
-background: #158cba;
-border: 44px solid #ff6550;
+background: #c4a5db;
+border: 44px solid #e2d3ee;
+box-shadow: 4px 23px 56px 3px rgba(0, 0, 0, 0.1);
   /* mask-image: url(../../../assets/dev-images/akash/Flocken-removebg-preview.png); */
   /* background-repeat: no-repeat; */
 }
@@ -60,6 +62,7 @@ border: 44px solid #ff6550;
   padding: 2rem;
   width: 50%;
   height: 100vh;
+  color: #3b204b;
 }
 
 .product-desc {
@@ -215,16 +218,20 @@ ul li:hover {
   padding: 0.5rem 1rem;
   font-size: 1.1em;
   font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
+  /* border: none; */
+  border: 1px solid #6b4683;
+  border-radius: 20px;
+  /* background-color: #007bff; */
+  color: #6b4683;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
-
+.buy-n {
+  background-color: #c4a5db;
+}
 .add-to-cart-btn:hover {
-  background-color: #0056b3;
+  background-color: #6b4683;
+  color: #faf8fc;
   transform: scale(1.05);
 }
 
@@ -279,7 +286,13 @@ ul li:hover {
   height: 7rem;
   border-radius: 50%;
 }
-
+.seven-day  h3,
+.Free-Delivery  h3,
+.secure-payment  h3 {
+color: #9765b8;
+font-weight: 900;
+font-size: 1.3rem;
+}
 .product-similer {
   margin-left: 4rem;
 
@@ -295,11 +308,14 @@ ul li:hover {
 }
 
 .P-good {
+  color: #9765b8;
   font-weight: 400;
 }
 
 .F-Y {
+  color: #3b204b;
   font: bold;
+  font-weight: 800;
 }
 
 .sh {
@@ -371,9 +387,11 @@ ul li:hover {
   }
 .product-left{
   width: 100%;
+  height: 64dvh;
 }
 .product-right{
   width: 100%;
+  height: 64dvh;
 }
 
 }

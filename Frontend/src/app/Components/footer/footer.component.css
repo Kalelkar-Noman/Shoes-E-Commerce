@@ -1,5 +1,5 @@
 footer {
-  background-color: #111;
+  background-color: #6b4683;
 }
 
 .footerContainer {
@@ -15,7 +15,7 @@ footer {
 .socialIcons a {
   text-decoration: none;
   padding: 10px;
-  background-color: white;
+  background-color: #e2d3ee;
   margin: 10px;
   border-radius: 50%;
 }
@@ -28,12 +28,12 @@ footer {
 
 /* Hover affect on social media icon */
 .socialIcons a:hover {
-  background-color: #111;
+  background-color: #3b204b;
   transition: 0.5s;
 }
 
 .socialIcons a:hover i {
-  color: white;
+  color: #ac81cb;
   transition: 0.5s;
 }
 
@@ -61,7 +61,7 @@ footer {
 }
 
 .footerBottom {
-  background-color: #000;
+  background-color: #57396a;
   padding: 20px;
   text-align: center;
 }
